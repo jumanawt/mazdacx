@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/style.css">
+
+  <title>Mazda | Customer Journey 2020</title>
+<style>
+body {
+  font-family: Helvetica; 
+  font-weight: 400;
+  background: #ecf0f1;
+}
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1.2em 0;
+  color: #555555;
+}
+
+
+/*Carousel*/
+.carrousel {
+  background: #ffffff;
+  text-align: center;
+  padding: 4em 0;
+  height: 20vh;
+  max-width: 750px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.carrousel .slides {
+  width: 400%;
+  left: 0;
+  padding-left: 0;
+  padding-top: 1em;
+  overflow: hidden;
+  list-style: none;
+  position: relative;
+
+  -webkit-transition: transform .25s;
+  -moz-transition: transform .25s;
+  -o-transition: transform .25s;
+  transition: transform .25s;
+}
+.carrousel .slides li {
+  width: 25%;
+  position: relative;
+  float: left;
+}
+
+.carrousel .slidesNavigation {
+  display: block;
+  list-style: none;
+  text-align: center;
+  bottom: 1em;
+  /*--- Centering trick---*/
+    /* Absolute positioning*/
+    position: absolute; 
+    /* Abosulte positioning*/
+    width: 104px; /*This width  is the addition of the width of all the navigations dots - So in this case is   104 because the navigation dots are 26px (width:10px and 6px marginleft + 6 px marginright) and there are 4 dots so 4x26=104 */
+    left: 50%; /*Centering de element*/
+    margin-left: -52px; /*adjusting the centering by applying a negative margin of half of the width*/
+}
+.carrousel input {
+  display: none;
+}
+.carrousel .slidesNavigation label {
+  float: left;
+  margin: 6px;
+  display: block;
+  height: 10px;
+  width: 10px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: solid 2px #2980b9;
+  font-size: 0;
+}
+/* You have to repeat this with each slide
+TODO: make it easier with SCSS
+25% movement 100/slides-num
+*/
+#radio-1:checked ~ .slides {
+  transform: translateX(0%);
+}
+#radio-2:checked ~ .slides {
+  transform: translateX(-25%);
+}
+#radio-3:checked ~ .slides {
+  transform: translateX(-50%);
+}
+#radio-4:checked ~ .slides {
+  transform: translateX(-75%);
+}
+
+
+.carrousel .slidesNavigation label:hover {
+   cursor: pointer;
+}
+/* You have to repeat this with each slide/dot */
+.carrousel #radio-1:checked ~ .slidesNavigation label#dotForRadio-1,
+.carrousel #radio-2:checked ~ .slidesNavigation label#dotForRadio-2,
+.carrousel #radio-3:checked ~ .slidesNavigation label#dotForRadio-3,
+.carrousel #radio-4:checked ~ .slidesNavigation label#dotForRadio-4 {
+  background: #2980b9;
+}
+ 
+</style>
+</head>
+
+<header class="header">
+  <div class="overlay has-fade"></div>
+
+  <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+      <a href="/" class="header__logo">
+        <img src="images/mazda-logo.svg" alt="Easybank" />
+      </a>
+
+      <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="header__links hide-for-mobile">
+        <a href="#"><img class="icon" src="images/icon_download.svg" alt="Download icon">Download Journey</a>
+        <a href="#"><img class="icon" src="images/icon_report.svg" alt="Report icon">Report a Problem</a>
+      </div>
+      
+  </nav>
+
+  <div class="header__menu has-fade">
+    <a href="">Download Journey</a>
+    <a href="">Report a Problem</a>
+  </div>
+  <table id="output" hidden></table>
+</header>
+
+  <section class="content">
+ 
+    <h1>Css Only Carousel</h1>
+    <!-- Css Carousel-->
+    <div class="carrousel">				
+          <input type="radio" name="slides" id="radio-1" checked>
+          <input type="radio" name="slides" id="radio-2">
+          <input type="radio" name="slides" id="radio-3">
+          <input type="radio" name="slides" id="radio-4">
+          <ul class="slides">
+             <li class="slide">
+                <p>It was a pleasure to work with him</p
+             </li>        
+            <li class="slide">
+              <p>It was a pleasure to work with him 2</p
+               </li>
+              <li class="slide">
+                <p>It was a pleasure to work with him 3</p
+              </li>
+              <li class="slide">
+                <p>It was a pleasure to work with him 4</p
+               </li>
+          </ul>
+          <div class="slidesNavigation">
+            <label for="radio-1" id="dotForRadio-1"></label>
+            <label for="radio-2" id="dotForRadio-2"></label>
+            <label for="radio-3" id="dotForRadio-3"></label>
+            <label for="radio-4" id="dotForRadio-4"></label>
+          </div>
+    </div>		
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__copyright">
+        &copy; Mazda. All Rights Reserved.
+      </div>
+    </div>    
+  </footer>
+</body>
+</html>

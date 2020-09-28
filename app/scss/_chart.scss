@@ -1,0 +1,51 @@
+  .chart {
+    position: sticky;
+    bottom: 0;
+    height: 18vh;
+    background-color: $dark-black;
+  
+    @include breakpoint-up(medium){
+      height: 24vh;
+    }    
+    &__legend {
+      height: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 2px;   
+      color: $very-light-gray; 
+      position: sticky;
+      left: 0rem;
+      bottom: 0;
+      right: 1.5rem;
+      width: 375px;  
+      font-size: 0.66rem;  
+      text-transform: uppercase;
+      padding-top: 0.4rem;   
+      float: right;
+
+      @include breakpoint-down(small){
+        grid-template-columns: repeat(1, 1fr);
+      }
+    
+
+      &--text {
+        cursor: pointer;
+      }
+
+      &--img {
+        padding: 0 0.4rem;
+      }
+    }
+    &__container {
+      position: absolute;
+      width: 1920px;
+      top: 0;
+      bottom: 16%;
+      padding: 0 4rem;
+      @include breakpoint-up(medium){
+        width: 4000px;
+      }
+    }    
+  }
+
+

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <!--<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">-->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.1/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.3.0/json2html.min.js"></script>  
+
+  <title>Mazda | Customer Journey 2020</title>
+
+</head>
+<body>
+
+  <header class="header">
+    <div class="overlay has-fade"></div>
+
+    <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+        <a href="/" class="header__logo">
+          <img src="images/mazda-logo.svg" alt="Easybank" />
+        </a>
+
+        <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+
+        <div class="header__links hide-for-mobile">
+          <a href="download/MNAO_JourneyMapData.xlsx"><img class="icon" src="images/icon_download.svg" alt="Download icon">Download Journey</a>
+          <a href="#openModal"><img class="icon" src="images/icon_report.svg" alt="Report icon">Suggest Update</a>
+        </div>
+        
+    </nav>
+
+    <div class="header__menu has-fade">
+      <a href="download/MNAO_JourneyMapData.xlsx"><img class="icon" src="images/icon_download.svg" alt="Download icon">Download Journey</a>
+      <a href="#openModal"><img class="icon" src="images/icon_report.svg" alt="Report icon">Suggest Update</a>
+    </div>
+  </header>
+
+  <!--<section id="picker" class="picker">
+    <div class="container">
+      <form class="form">
+        <div class="file-upload-wrapper" data-text="Please Select a Data File">
+          <input id="file-upload-field" type="file" class="file-upload-field" value="">
+        </div>
+      </form>
+    </div>
+  </section>-->
+
+  <section class="modal">
+    <div id="openModal" class="modalDialog">
+        <div>	<a href="#close" title="Close" class="close">X</a>
+    
+            <h3 class="modalDialog__title">We are committed to continuously improving the customer experience.</h3>
+    
+            <p class="modalDialog__text">To make sure we are tracking the most up to date work we regularly update this journey map. To suggest an update please email: XXX@XXX.com Thank you for your help!</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="data-chart" class="chart" style="overflow-x: scroll">
+    <div class="chart__container">
+      <canvas id="chart"></canvas>
+      <div id="chart-legend" class="chart__legend"></div>          
+    </div>
+  </section> 
+
+  <section id="touchpoint-content" class="touchpoint container container--pall">
+    
+    <section class="touchpoint__general">
+      <div class="touchpoint__header">
+        <div class="touchpoint__name">
+          <div class="touchpoint__name--header">Touchpoint</div>
+          <div class="touchpoint__name--text">Notice Mazda</div>        
+        </div>
+        <div class="touchpoint__brand">
+          <div class="touchpoint__brandimperative">
+            <div class="touchpoint__brand--header">Brand Imperative</div>
+            <div class="touchpoint__brand--text">Breakthrough</div> 
+          </div>
+          <div class="touchpoint__journeyphase">
+            <div class="touchpoint__brand--journeyheader">Journey Phase</div>
+            <div class="touchpoint__brand--journeytext">Passive/Active Assimilation</div> 
+          </div>                 
+        </div>
+        <div class="touchpoint__customer">
+          <div class="touchpoint__customer--header">What is the customer doing?</div>
+          <div class="touchpoint__customer--text">See advertisement, see car on road, rent a hire car, ride in friends car, etc.</div>          
+        </div>
+      </div>
+      <div class="touchpoint__tags">
+        <div class="touchpoint__tags-grid">
+          <div class="touchpoint__tags-section">
+            <div class="touchpoint__tags-section--team-icon"><img src="images/icon_team.svg" alt="Team icon"></div>
+            <div class="touchpoint__tags-section--team-header">Team</div>
+            <div class="touchpoint__tags-section--team-text">Marketing</div> 
+          </div>  
+          <div class="touchpoint__tags-section">
+            <div class="touchpoint__tags-section--tier-icon"><img src="images/icon_tier.svg" alt="Tiers icon"></div>
+            <div class="touchpoint__tags-section--tier-header">Tier1 / Tier3 Use Case</div>
+            <div class="touchpoint__tags-section--tier-text">Active awareness</div> 
+          </div>           
+        </div>
+        <div class="">
+          <div class="touchpoint__tags-section">
+            <div class="touchpoint__tags-section--team-icon"><img src="images/icon_workstream.svg" alt="Workstream icon"></div>
+            <div class="touchpoint__tags-section--alignment-header">Alignment to Existing workstream</div>
+            <div class="touchpoint__tags-section--alignment-text">Free oil changes for healthcare workers and their families. BIG success.</div> 
+          </div>           
+        </div>                      
+      </div>
+    </section>
+    <!-- touchpoint data goes below here-->
+    <div class="article__content">
+
+      <div class="article__grid">     
+
+        <div class="article__item article__item--insights">
+          <div class="article__text">
+            <div class="article__title">Main Insights</div>
+            <div class="carrousel">				
+              <input type="radio" name="slideskk" id="insights-radio-1" checked>
+              <input type="radio" name="slideskk" id="insights-radio-2">
+              <input type="radio" name="slideskk" id="insights-radio-3">
+              <input type="radio" name="slideskk" id="insights-radio-4">
+              <ul class="slides">
+                 <li class="slide">
+                  <div class="article__header touchpoint__insights--header">Engage customers when you have a natural opportunity to form a bond.</div>
+                  <div class="article__content touchpoint__insights--content">"When travelling customers are now more likely now than ever before to rent a vehicle. Public transport usage is down and although car rental companies saw a reduction in usage during the peak of the pandemic, the new normal is likely to see an increase in rental car usage. Look for opportunities to get existing Mazda drivers into better models and non Mazda drivers behind the wheel so they can form a bond with the car."</div>
+                 </li>        
+                <li class="slide">
+                  <div class="article__header touchpoint__insights2--header">Header 2</div>
+                  <div class="article__content touchpoint__insights2--content">"Content 2"</div>
+                </li>
+                <li class="slide">
+                  <div class="article__header touchpoint__insights3--header">Header 3</div>
+                  <div class="article__content touchpoint__insights3--content">"Content 3"</div>
+                </li>
+                  <li class="slide">
+                    <div class="article__header touchpoint__insights4--header">Header 4</div>
+                    <div class="article__content touchpoint__insights4--content">"Content 4"</div>
+                   </li>
+              </ul>
+              <div class="slidesNavigation">
+                <label for="insights-radio-1" id="dotForRadio-1"></label>
+                <label for="insights-radio-2" id="dotForRadio-2"></label>
+                <label for="insights-radio-3" id="dotForRadio-3"></label>
+                <label for="insights-radio-4" id="dotForRadio-4"></label>
+              </div>
+            </div>             
+          </div>         
+        </div>
+
+        <div class="article__item article__item--quotes">
+          <div class="article__text">
+            <div class="article__title">Quotes</div>
+            <div class="article__content article__content--quotes touchpoint__quotes--content">"I rented a car which introduced me to some new features like seat warmers. Once I had that I new my next car needed to have them!"</div>
+          </div>  
+        </div>        
+
+        <div class="article__item article__item">
+          <div class="article__text">
+            <div class="article__title">Opportunites</div>
+            <!--<div class="article__header touchpoint__opportunities--header"></div>-->
+            <div class="article__content touchpoint__opportunities--content">Use car rental as an opportunity to engage new and existing Mazda owners.</div>
+          </div>
+        </div>
+        
+        <div class="article__item">
+          <div class="article__text">
+            <div class="article__title">Best Practices</div>
+            <!--<div class="article__header"></div>-->
+            <div class="article__content touchpoint__bestpractices--content">Lexus rent a car in different cities.</div>
+          </div>
+        </div>
+
+        <div class="article__item">
+          <div class="article__text">
+            <div class="article__title">Supporting Data</div>
+            <div class="article__header touchpoint__supportingdata--header">Opportunities for future initiatives</div>
+            <div class="article__content touchpoint__supportingdata--content">Provide a recorded 'talkthrough' for drivers who can not have a dealer in the car. Go get but for test drives for people who do not like dealers or dealerships.</div>
+          </div>        
+        </div>
+        <div class="article__item">
+          <div class="article__text">
+            <div class="article__title">Third Party Data</div>
+            <div class="carrousel">				
+              <input type="radio" name="slides" id="thirdparty-radio-1" checked>
+              <input type="radio" name="slides" id="thirdparty-radio-2">
+              <input type="radio" name="slides" id="thirdparty-radio-3">
+              <input type="radio" name="slides" id="thirdparty-radio-4">
+              <ul class="slides">
+                 <li class="slide">
+                  <div class="article__header touchpoint__thirdparty--header"></div>
+                  <div class="article__content touchpoint__thirdparty--content">67% of customers expect enhanced dealership communication online.</div>
+                 </li>        
+                <li class="slide">
+                  <div class="article__header touchpoint__thirdparty2--header"></div>
+                  <div class="article__content touchpoint__thirdparty2--content">67% of customers expect enhanced dealership communication online.</div>
+                </li>
+              </ul>
+              <div class="slidesNavigation">
+                <label for="thirdparty-radio-1" id="dotForThirdPartyRadio-1"></label>
+                <label for="thirdparty-radio-2" id="dotForThirdPartyRadio-2"></label>
+              </div>
+            </div>             
+          </div>                    
+        </div>
+        <div class="article__item">
+          <div class="article__text">
+            <div class="article__title">Behavioral Theory / Cognitive Bias at Play</div>
+            <div class="article__header touchpoint__behavioral--header">Peak-End Rule</div>
+            <div class="article__content touchpoint__behavioral--content">The peak–end rule is a psychological heuristic in which people judge an experience largely based on how they felt at its peak and at its end, rather than based on the total sum or average of every moment of the experience. The effect occurs regardless of whether the experience is pleasant or unpleasant.</div>
+          </div>        
+        </div>      
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__copyright">
+        <!--&copy; Mazda. All Rights Reserved.-->
+      </div>
+    </div>
+    <table id="output" hidden></table>    
+  </footer>
+  <script src="/app/js/script.js"></script>
+  <script src="/app/js/excelParser.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+.carrousel {
+  height: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.carrousel .slides {
+  width: 400%;
+  left: 0;
+  margin: 0;
+  padding-left: 0;
+  overflow: hidden;
+  list-style: none;
+  position: relative;
+
+  -webkit-transition: transform .25s;
+  -moz-transition: transform .25s;
+  -o-transition: transform .25s;
+  transition: transform .25s;
+}
+.carrousel .slides li {
+  width: 25%;
+  position: relative;
+  float: left;
+}
+
+.carrousel .slidesNavigation {
+  display: block;
+  list-style: none;
+  text-align: center;
+  /*--- Centering trick---*/
+  position: relative; 
+  width: 104px; /*This width  is the addition of the width of all the navigations dots - So in this case is   104 because the navigation dots are 26px (width:10px and 6px marginleft + 6 px marginright) and there are 4 dots so 4x26=104 */
+  //left: 50%; /*Centering de element*/
+  //margin-left: -52px; /*adjusting the centering by applying a negative margin of half of the width*/
+  margin-top: 3rem;
+}
+.carrousel input {
+  display: none;
+}
+.carrousel .slidesNavigation label {
+  float: left;
+  margin: 6px;
+  display: block;
+  height: 7px;
+  width: 7px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: solid 0.125rem $darkish-gray;
+  font-size: 0;
+}
+/* You have to repeat this with each slide
+TODO: make it easier with SCSS
+25% movement 100/slides-num
+*/
+#insights-radio-1:checked ~ .slides, #thirdparty-radio-1:checked ~ .slides {
+  transform: translateX(0%);
+}
+#insights-radio-2:checked ~ .slides, #thirdparty-radio-2:checked ~ .slides {
+  transform: translateX(-25%);
+}
+#insights-radio-3:checked ~ .slides {
+  transform: translateX(-50%);
+}
+#insights-radio-4:checked ~ .slides {
+  transform: translateX(-75%);
+}
+
+
+.carrousel .slidesNavigation label:hover {
+   cursor: pointer;
+}
+/* You have to repeat this with each slide/dot */
+.carrousel #insights-radio-1:checked ~ .slidesNavigation label#dotForRadio-1,
+.carrousel #insights-radio-2:checked ~ .slidesNavigation label#dotForRadio-2,
+.carrousel #insights-radio-3:checked ~ .slidesNavigation label#dotForRadio-3,
+.carrousel #insights-radio-4:checked ~ .slidesNavigation label#dotForRadio-4, 
+.carrousel #thirdparty-radio-1:checked ~ .slidesNavigation label#dotForThirdPartyRadio-1,
+.carrousel #thirdparty-radio-2:checked ~ .slidesNavigation label#dotForThirdPartyRadio-2 {
+  background: $darkish-gray;
+}

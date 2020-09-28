@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.1/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.3.0/json2html.min.js"></script>
+
+  <title>Mazda | Customer Journey 2020</title>
+
+</head>
+<body>
+
+  <style>
+    #columns {
+  width: 100%;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+table {
+  text-align: left;
+  margin-top: 20px;
+}
+
+th {
+  padding: 10px;
+  background-color: #e4e4e4;
+  border: 1px solid #ccc;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+  </style>
+
+<header class="header">
+  <div class="overlay has-fade"></div>
+
+  <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+      <a href="/" class="header__logo">
+        <img src="images/mazda-logo.svg" alt="Easybank" />
+      </a>
+
+      <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="header__links hide-for-mobile">
+        <a href="#"><img class="icon" src="images/icon_download.svg" alt="Download icon">Download Journey</a>
+        <a href="#"><img class="icon" src="images/icon_report.svg" alt="Report icon">Report a Problem</a>
+      </div>
+      
+  </nav>
+
+  <div class="header__menu has-fade">
+    <a href="">Download Journey</a>
+    <a href="">Report a Problem</a>
+  </div>
+</header>
+
+  <div>
+    <div class="text">List of the column names, separated by comma:</div>
+    <input type="text" id="columns" />
+  </div>
+  <div>
+    <span class="text">Upload an .xls(x) file:</span>
+    <input type="file" id="file-btn" />
+  </div>
+  <div class="text">Parsed HTML output:</div>
+  <table id="output"></table>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__copyright">
+        &copy; Mazda. All Rights Reserved.
+      </div>
+    </div>    
+  </footer>
+  <script src="/app/js/script.js"></script>
+  <script src="/app/js/columnParser.js"></script>
+</body>
+</html>

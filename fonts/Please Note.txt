@@ -1,0 +1,4 @@
+TTF type font set is also available.
+Please inform MC BSGD if the TTF version is necessary.
+
+BSGD

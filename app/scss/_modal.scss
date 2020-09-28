@@ -1,0 +1,63 @@
+  .modalDialog {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity:0;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+      pointer-events: none;
+
+      &__title {
+          font-family: 'MazdaMedium';
+          font-size: 1.175rem;
+          text-transform: uppercase;
+          letter-spacing: $mazda-header-letter-spacing;
+      }
+
+      &__text {
+        font-family: 'MazdaRegular';
+        font-size: 0.85rem;      
+        margin-top: 2rem;    
+      }
+  }
+  .modalDialog:target {
+      opacity:1;
+      pointer-events: auto;
+  }
+  .modalDialog > div { /*actual mode styles*/
+    width: 18.375rem;
+    position: relative;
+    margin: 10% auto;
+    padding: 2.5rem;
+    background: #F5F5F5;
+
+    @include breakpoint-up(medium){
+      width: 31.375rem;
+      padding: 5rem;
+    }        
+
+    @include breakpoint-up(large){
+      width: 44.375rem;
+      padding: 5rem;
+    }    
+  }
+  .close {
+      
+      color: #101010;
+      line-height: 25px;
+      position: absolute;
+      right: 12px;
+      text-align: center;
+      top: 10px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+  }
+  .close:hover {
+      color: #a8a8a8;
+  }    
